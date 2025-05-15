@@ -1,1 +1,13 @@
-INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Maria Brown', '12345678-9', '1854.25', '2001-07-25', '2');
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('João Fernandes Campos Café Filho', '123.456.789-10', '100000.2', '1899-02-03', '1');
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Carlos Coimbra da Luz', '234.567.890-12', '120003.4', '1894-08-04', '4');
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Nereu de Oliveira Ramos', '345.678.901-23', '130004.5', '1888-09-03', '4');
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Juscelino Kubitschek de Oliveira', '456.789.012-34', '140005.6', '1902-09-12', '3');
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Jânio da Silva Quadros', '567.890.123-45', '150006.7', '1917-01-25', '1');
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Paschoal Ranieri Mazzilli', '678.901.234-56', '160007.8', '1910-04-27', '3');
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('João Belchior Marques Goulart','789.012.345-67','170008.9','1919-03-01','3');
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('José Sarney de Araújo Costa','890.123.456-78','1200003.4','1930-04-24','3');
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Fernando Affonso Collor de Mello','901.234.567-89','5600007.8','1949-08-12','5');
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Itamar Augusto Cautiero Franco','012.345.678-90','6700008.9','1930-06-28','2');
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Fernando Henrique Cardoso','123.456.789-11','20210220.23','1931-06-18','4');
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Luiz Inácio Lula da Silva','234-567-890-11','30410330.44','1945-10-27','5');
+INSERT INTO tb_client (name, cpf, income, birth_date, children) VALUES ('Dilma Vana Rousseff','345-678-901-22','20340550.6','1947-12-14','1');
