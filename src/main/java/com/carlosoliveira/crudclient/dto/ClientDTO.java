@@ -5,17 +5,16 @@ import java.time.LocalDate;
 import com.carlosoliveira.crudclient.entities.Client;
 
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.PastOrPresent;
 
 public class ClientDTO {
 
 	private Long id;
-	@NotBlank
+	@NotBlank(message="Campo requerido. Não pode ser vazio.")
 	private String name;
 	private String cpf;
 	private Double income;
-	@PastOrPresent
+	@PastOrPresent(message="Informe uma data de nascimento válida. Dica: o cliente já nasceu! =)")
 	private LocalDate birthDate;
 	private Integer children;
 	
