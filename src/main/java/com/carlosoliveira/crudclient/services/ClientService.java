@@ -1,7 +1,5 @@
 package com.carlosoliveira.crudclient.services;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -11,6 +9,9 @@ import org.springframework.transaction.annotation.Transactional;
 import com.carlosoliveira.crudclient.dto.ClientDTO;
 import com.carlosoliveira.crudclient.entities.Client;
 import com.carlosoliveira.crudclient.repositories.ClientRepository;
+import com.carlosoliveira.crudclient.services.exceptions.ResourceNotFoundException;
+
+import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class ClientService {
@@ -20,11 +21,9 @@ public class ClientService {
 	
 	@Transactional
 	public ClientDTO findById(Long id) {
-		Optional<Client> result = repository.findById(id);
-		Client client = result.orElseThrow(
-				() -> new RuntimeException("Recurso não encontrado."));
-		ClientDTO dto = new ClientDTO(client);
-		return dto;
+		Client client = repository.findById(id).orElseThrow(
+				()-> new ResourceNotFoundException("Recurso não encontrado."));
+		return new ClientDTO(client);
 	}
 	
 	@Transactional
@@ -45,11 +44,18 @@ public class ClientService {
 	
 	@Transactional
 	public ClientDTO update(Long id, ClientDTO dto) {
-		Client entity = new Client();
-		entity = repository.getReferenceById(id);
-		copyDtoToEntity(dto, entity); //Copiou
-		entity = repository.save(entity);//Salvou
-		return new ClientDTO(entity);
+		try {
+			Client entity = new Client();
+			entity = repository.getReferenceById(id);
+			copyDtoToEntity(dto, entity); //Copiou
+			entity = repository.save(entity);//Salvou
+			return new ClientDTO(entity);	
+		}
+		catch (EntityNotFoundException e) {
+			
+			throw new ResourceNotFoundException("Recurso não encontrado.");
+			
+		}
 	}
 	
 	private void copyDtoToEntity(ClientDTO dto, Client entity) {
@@ -59,6 +65,12 @@ public class ClientService {
 		entity.setBirthDate(dto.getBirthDate());
 		entity.setChildren(dto.getChildren());
 	}
-	
+	@Transactional
+	public void delete(Long id) {
+		if (!repository.existsById(id)) {
+			throw new ResourceNotFoundException("Recurso não encontrado");
+		}
+		repository.deleteById(id);
+	}
 
 }
