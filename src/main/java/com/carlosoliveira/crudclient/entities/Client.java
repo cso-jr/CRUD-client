@@ -104,7 +104,5 @@ public class Client {
 		Client other = (Client) obj;
 		return Objects.equals(id, other.id);
 	}
-	
-	
-	
+
 }
